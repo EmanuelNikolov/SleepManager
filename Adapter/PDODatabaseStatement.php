@@ -16,7 +16,7 @@ class PDODatabaseStatement implements DatabaseStatementInterface
         $this->statement = $statement;
     }
 
-    public function execute(array $params = [])
+    public function execute(array $params = []): bool
     {
         return $this->statement->execute($params);
     }

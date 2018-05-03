@@ -7,11 +7,11 @@ interface UserServiceInterface
 {
 
     public function register(
-      $email,
-      $username,
-      $password,
-      $passwordConfirm,
-      $birthday
+      string $email,
+      string $username,
+      string $password,
+      string $passwordConfirm,
+      string $birthday
     ): bool;
 
     public function login($userCredential, $password): bool;

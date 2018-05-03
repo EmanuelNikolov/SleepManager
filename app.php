@@ -13,4 +13,6 @@ $db = new \Adapter\PDODatabase(
   \Config\DBConfig::DB_PASS
 );
 
+$encryptionService = new \Services\Encryption\BCryptEncryption();
+
 $app = new \Core\App();

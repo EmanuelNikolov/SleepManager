@@ -6,7 +6,7 @@ namespace Adapter;
 interface DatabaseStatementInterface
 {
 
-    public function execute(array $params = []);
+    public function execute(array $params = []): bool;
 
     public function fetch();
 

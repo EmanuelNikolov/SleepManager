@@ -12,5 +12,5 @@ class DBConfig
 
     public const DB_PASS = '';
 
-    public const DB_NAME = 'forum';
+    public const DB_NAME = 'sleep_manager';
 }
