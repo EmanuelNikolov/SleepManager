@@ -50,10 +50,10 @@
                     <form method="post">
                         <fieldset>
                             <div class="form-group">
-                                <label for="username">Username/Email</label>
-                                <input class="form-control" id="username"
+                                <label for="userCredential">Username/Email</label>
+                                <input class="form-control" id="userCredential"
                                        placeholder="Enter username or email"
-                                       type="text" name="username">
+                                       type="text" name="userCredential">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>

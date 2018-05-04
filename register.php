@@ -4,7 +4,7 @@ $userService = new \Services\User\UserService($db, $encryptionService);
 
 if (isset($_POST['submit'])) {
 
-    $result = $userService->register(
+    $userService->register(
       $_POST['email'],
       $_POST['username'],
       $_POST['password'],
@@ -12,12 +12,15 @@ if (isset($_POST['submit'])) {
       $_POST['birthday']
     );
 
-    if (!$result) {
-        throw new Exception("Something went wrong :(");
-    }
-
-    header("Location: profile.php");
+    header("Location: login.php");
     exit;
 }
 
-$app->render("register");
+if (isset($_SESSION['error'])) {
+    $viewData = new \DTO\User\UserRegisterViewData($_SESSION['error']);
+    unset($_SESSION['error']);
+} else {
+    $viewData = new \DTO\User\UserRegisterViewData();
+}
+
+$app->render("register", $viewData);

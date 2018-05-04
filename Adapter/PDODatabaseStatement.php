@@ -40,4 +40,9 @@ class PDODatabaseStatement implements DatabaseStatementInterface
     {
         return $this->statement->fetchObject($className, $args);
     }
+
+    public function bindValue(string $parameter, $var)
+    {
+        return $this->statement->bindValue($parameter, $var);
+    }
 }

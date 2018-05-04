@@ -15,4 +15,6 @@ interface DatabaseStatementInterface
     public function fetchAll();
 
     public function fetchObject($className, array $args = []);
+
+    public function bindValue(string $parameter, $var);
 }

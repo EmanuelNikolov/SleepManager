@@ -12,7 +12,7 @@ interface UserServiceInterface
       string $password,
       string $passwordConfirm,
       string $birthday
-    ): bool;
+    );
 
-    public function login($userCredential, $password): bool;
+    public function login(string $userCredential, string $password): string;
 }

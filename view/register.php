@@ -1,3 +1,4 @@
+<?php /** @var \DTO\User\UserRegisterViewData $viewData */ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +41,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-header">
+                    <?php if ($viewData->getError()): ?>
+                        <h2 id="forms"><?= htmlspecialchars($viewData->getError()); ?></h2>
+                    <?php endif; ?>
                     <h2 id="forms">Register</h2>
                 </div>
             </div>
