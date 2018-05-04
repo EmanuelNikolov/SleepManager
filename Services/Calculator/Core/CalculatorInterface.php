@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Calculators;
+namespace Services\Calculator\Core;
 
-
-use DateTime;
 
 interface CalculatorInterface
 {
@@ -14,13 +12,13 @@ interface CalculatorInterface
 
     public const FALL_ASLEEP_TIME = 15; //in Minutes
 
-    public function setAsleepTime(DateTime $time): void;
+    public function setSleepTime(\DateTime $time): void;
 
-    public function getAsleepTime(): DateTime;
+    public function getSleepTime(): \DateTime;
 
-    public function setWakeTime(DateTime $time): void;
+    public function setWakeTime(\DateTime $time): void;
 
-    public function getWakeTime(): DateTime;
+    public function getWakeTime(): \DateTime;
 
     public function setSleepCycles(int $sleepCycles): void;
 
@@ -28,5 +26,5 @@ interface CalculatorInterface
 
     public function calculate(): void;
 
-    public function getTimeAsleep(): DateTime;
+    public function getTimeAsleep(): \DateTime;
 }

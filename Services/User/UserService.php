@@ -37,7 +37,6 @@ class UserService implements UserServiceInterface
      * @param string $passwordConfirm
      * @param string $birthday
      *
-     * @return bool
      * @throws \Exception
      * @throws \Exceptions\RegisterException
      */
@@ -127,5 +126,17 @@ class UserService implements UserServiceInterface
         }
 
         return $user->getId();
+    }
+
+    public function getUser(string $userId): User
+    {
+        $query = "SELECT id, email, username, birthday FROM users WHERE id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([$userId]);
+        $user = $stmt->fetchObject(User::class);
+        if (!$user) {
+            throw new \Exceptions\LoginException("Something went wrong :(");
+        }
+        return $user;
     }
 }

@@ -13,7 +13,7 @@
 <body>
 <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" style="">
     <div class="container">
-        <a class="navbar-brand" href="index.php">SleepCalculator</a>
+        <a class="navbar-brand" href="../index.php">SleepCalculator</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false"
@@ -23,21 +23,21 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php">Home<span
+                    <a class="nav-link" href="../index.php">Home<span
                                 class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="users.php">Users</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="profile.php">Profile</a>
+                    <a class="nav-link" href="../profile.php">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="profile_edit.php">Edit profile</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" method="post"
-                  action="index.php">
+                  action="../index.php">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit"
                         name="logout">
                     Logout
@@ -48,33 +48,28 @@
 </div>
 <div class="container">
     <div class="bs-docs-section">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="bs-component">
-                    <div class="jumbotron text-center">
-                        <h2 class="display-4">
-                            Здрасти,
-                            <?= htmlspecialchars($viewData->getUser()
-                              ->getUsername()); ?>!
-                        </h2>
-                        <p class="lead"></p>
-                        <hr class="my-4">
-                    </div>
+        <form method="post">
+            <div class="row text-center">
+                <div class="form-group col-lg-6 mx-auto">
+                    <label for="sleepTime">
+                        When did you go to bed?
+                    </label>
+                    <input class="form-control" id="sleepTime"
+                           type="datetime-local"
+                           name="sleepTime">
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="bs-component text-center">
-                    <a class="card-link" href="log_cycle.php">
-                        Add a sleep cycle entry
-                    </a>
-                    <a class="card-link" href="all_logs.php">
-                        View all sleep cycle entries
-                    </a>
+                <div class="form-group col-lg-6 mx-auto">
+                    <label for="wakeTime">When did you wake
+                        up?</label>
+                    <input class="form-control" id="wakeTime"
+                           type="datetime-local"
+                           name="wakeTime">
                 </div>
+                <button type="submit" class="btn btn-primary mx-auto"
+                        name="submit">Submit
+                </button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 </body>

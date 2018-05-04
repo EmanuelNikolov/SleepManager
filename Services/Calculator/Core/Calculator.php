@@ -1,21 +1,18 @@
 <?php
 
-namespace App\Calculators;
+namespace Services\Calculator\Core;
 
-
-use DateInterval;
-use DateTime;
 
 class Calculator implements CalculatorInterface
 {
 
     /**
-     * @var DateTime
+     * @var \DateTime
      */
-    private $asleepTime;
+    private $sleepTime;
 
     /**
-     * @var DateTime
+     * @var \DateTime
      */
     private $wakeTime;
 
@@ -23,9 +20,9 @@ class Calculator implements CalculatorInterface
 
     private $sleepCycles;
 
-    public function __construct(DateTime $startTime, int $sleepCycles)
+    public function __construct(\DateTime $startTime, int $sleepCycles)
     {
-        $this->setAsleepTime($startTime);
+        $this->setSleepTime($startTime);
         $this->setSleepCycles($sleepCycles);
         $this->calculate();
     }
@@ -36,33 +33,33 @@ class Calculator implements CalculatorInterface
           (CalculatorInterface::SLEEP_CYCLE * $this->sleepCycles)
           + CalculatorInterface::FALL_ASLEEP_TIME;
 
-        $tempTime = $this->asleepTime;
-        $tempTime->add(new DateInterval("PT{$sleepInterval}M"));
+        $tempTime = $this->sleepTime;
+        $tempTime->add(new \DateInterval("PT{$sleepInterval}M"));
         $this->setWakeTime($tempTime);
-        $this->timeAsleep = $tempTime->diff($this->asleepTime);
+        $this->timeAsleep = $tempTime->diff($this->sleepTime);
     }
 
-    public function getAsleepTime(): DateTime
+    public function getSleepTime(): \DateTime
     {
-        return $this->asleepTime;
+        return $this->sleepTime;
     }
 
-    public function setAsleepTime(DateTime $time): void
+    public function setSleepTime(\DateTime $time): void
     {
-        $this->asleepTime = $time;
+        $this->sleepTime = $time;
     }
 
-    public function getWakeTime(): DateTime
+    public function getWakeTime(): \DateTime
     {
         return $this->wakeTime;
     }
 
-    public function setWakeTime(DateTime $time): void
+    public function setWakeTime(\DateTime $time): void
     {
         $this->wakeTime = $time;
     }
 
-    public function getTimeAsleep(): DateTime
+    public function getTimeAsleep(): \DateTime
     {
         return $this->timeAsleep;
     }
