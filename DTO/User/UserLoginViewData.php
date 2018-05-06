@@ -5,7 +5,7 @@ namespace DTO\User;
 
 use DTO\ErrorViewDataInterface;
 
-class UserRegisterViewData implements ErrorViewDataInterface
+class UserLoginViewData implements ErrorViewDataInterface
 {
 
     private $error;

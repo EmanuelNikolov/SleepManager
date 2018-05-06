@@ -3,14 +3,14 @@
 namespace Core;
 
 
+use Exceptions\LoginException;
+
 class App
 {
 
     private const TEMPLATE_FOLDER = 'view';
 
-    /*private const TEMPLATE_HEADER = '';
-
-    private const TEMPLATE_FOOTER = '';*/
+    public const LOGIN_ERROR_MSG = 'You have to be logged in to do that.';
 
     public function render(string $templateName, $viewData = null): void
     {
@@ -24,8 +24,7 @@ class App
     public function checkLogin()
     {
         if (!isset($_SESSION['user_id'])) {
-            header("Location: login.php");
-            exit;
+            throw new LoginException(self::LOGIN_ERROR_MSG);
         }
     }
 }

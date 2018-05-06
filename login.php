@@ -12,4 +12,11 @@ if (isset($_POST['submit'])) {
     exit;
 }
 
-$app->render("login");
+if (isset($_SESSION['error'])) {
+    $viewData = new \DTO\User\UserLoginViewData($_SESSION['error']);
+    unset($_SESSION['error']);
+} else {
+    $viewData = new \DTO\User\UserLoginViewData();
+}
+
+$app->render("login", $viewData);

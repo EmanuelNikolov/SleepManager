@@ -135,7 +135,7 @@ class UserService implements UserServiceInterface
         $stmt->execute([$userId]);
         $user = $stmt->fetchObject(User::class);
         if (!$user) {
-            throw new \Exceptions\LoginException("Something went wrong :(");
+            throw new LoginException("Something went wrong :(");
         }
         return $user;
     }

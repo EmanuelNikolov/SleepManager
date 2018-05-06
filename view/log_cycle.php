@@ -1,4 +1,4 @@
-<?php /** @var \DTO\User\UserProfileViewData $viewData */ ?>
+<?php /** @var \DTO\SleepLog\SleepLogViewData $viewData */ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,27 +48,51 @@
 </div>
 <div class="container">
     <div class="bs-docs-section">
-        <form method="post">
-            <div class="row text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <?php if ($viewData->getError()): ?>
+                        <h2 id="forms"><?= htmlspecialchars($viewData->getError()); ?></h2>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+        <form class="text-center" method="post">
+            <div class="row">
                 <div class="form-group col-lg-6 mx-auto">
                     <label for="sleepTime">
                         When did you go to bed?
                     </label>
                     <input class="form-control" id="sleepTime"
-                           type="datetime-local"
+                           type="time"
+                           value="<?= $viewData->getCurrentHour(); ?>"
                            name="sleepTime">
+                    <input class="form-control" type="date" name="sleepDate"
+                           value="<?= $viewData->getCurrentDate(); ?>"/>
                 </div>
                 <div class="form-group col-lg-6 mx-auto">
                     <label for="wakeTime">When did you wake
                         up?</label>
                     <input class="form-control" id="wakeTime"
-                           type="datetime-local"
+                           type="time"
+                           value="<?= $viewData->getCurrentHour(); ?>"
                            name="wakeTime">
+                    <input class="form-control" type="date"
+                           value="<?= $viewData->getCurrentDate(); ?>"
+                           name="wakeDate">
                 </div>
-                <button type="submit" class="btn btn-primary mx-auto"
-                        name="submit">Submit
-                </button>
             </div>
+            <div class="row">
+                <div class="form-group col-lg-12 mx-auto">
+                    <label for="dreamRecord">Write down your dreams</label>
+                    <input class="form-control" id="dreamRecord"
+                           type="text" placeholder="Record your dreams here..."
+                           name="dreamRecord">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mx-auto"
+                    name="submit">Submit
+            </button>
         </form>
     </div>
 </div>
