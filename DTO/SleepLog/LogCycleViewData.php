@@ -5,7 +5,7 @@ namespace DTO\SleepLog;
 
 use DTO\ErrorViewDataInterface;
 
-class SleepLogViewData implements ErrorViewDataInterface
+class LogCycleViewData implements ErrorViewDataInterface
 {
 
     private const HOUR_FORMAT = 'H:i';

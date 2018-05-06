@@ -23,11 +23,11 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_SESSION['error'])) {
-    $viewData = new \DTO\SleepLog\SleepLogViewData(new DateTime(),
+    $viewData = new \DTO\SleepLog\LogCycleViewData(new DateTime(),
       $_SESSION['error']);
     unset($_SESSION['error']);
 } else {
-    $viewData = new \DTO\SleepLog\SleepLogViewData(new DateTime());
+    $viewData = new \DTO\SleepLog\LogCycleViewData(new DateTime());
 }
 
 $app->render("log_cycle", $viewData);

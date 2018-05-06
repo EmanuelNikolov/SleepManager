@@ -1,4 +1,4 @@
-<?php /** @var \DTO\SleepLog\SleepLogViewData $viewData */ ?>
+<?php /** @var \DTO\SleepLog\LogCycleViewData $viewData */ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

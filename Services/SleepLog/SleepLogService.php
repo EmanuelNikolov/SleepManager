@@ -4,6 +4,8 @@ namespace Services\SleepLog;
 
 
 use Adapter\DatabaseInterface;
+use DTO\SleepLog\Log;
+use DTO\SleepLog\LogsViewData;
 use Exceptions\LogCycleException;
 
 class SleepLogService
@@ -78,5 +80,30 @@ class SleepLogService
             $dreamRecord,
           ]
         );
+    }
+
+    public function showLogs($userId): LogsViewData
+    {
+        $query = "SELECT 
+                    s.id, 
+                    s.start, 
+                    s.end, 
+                    s.time_asleep AS timeAsleep,
+                    s.dream_record AS dreamRecord
+                  FROM sleep_cycle AS s
+                  INNER JOIN users AS u
+                  ON s.user_id = u.id
+                  WHERE u.id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([$userId]);
+
+        $logsViewData = new LogsViewData();
+        $logsViewData->setLogs(function () use ($stmt) {
+            while ($log = $stmt->fetchObject(Log::class)) {
+                yield $log;
+            }
+        });
+
+        return $logsViewData;
     }
 }

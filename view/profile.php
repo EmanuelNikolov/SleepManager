@@ -59,19 +59,13 @@
                         </h2>
                         <p class="lead"></p>
                         <hr class="my-4">
+                        <a class="card-link" href="log_cycle.php">
+                            Add a sleep cycle entry
+                        </a>
+                        <a class="card-link" href="all_logs.php">
+                            View all sleep cycle entries
+                        </a>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="bs-component text-center">
-                    <a class="card-link" href="log_cycle.php">
-                        Add a sleep cycle entry
-                    </a>
-                    <a class="card-link" href="all_logs.php">
-                        View all sleep cycle entries
-                    </a>
                 </div>
             </div>
         </div>
